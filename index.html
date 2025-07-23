@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbnb Price Predictor</title>
+</head>
+<body>
+  <form action="/predict" method="post">
+    <h1>Airbnb Price Predictor</h1>
+
+    <label>City</label>
+    <select name="City">
+      <option value="Bengaluru">Bengaluru</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Goa">Goa</option>
+      <option value="Mumbai">Mumbai</option>
+    </select>
+    <br><br>
+
+    <label>Room Type</label>
+    <select name="Roomtype">
+      <option value="Entire home/apt">Entire home/apt</option>
+      <option value="Private room">Private room</option>
+      <option value="Shared room">Shared room</option>
+    </select>
+    <br><br>
+
+    <label>Bedrooms</label>
+    <input type="number" name="Bedrooms" min="1" max="10" placeholder="Bedrooms">
+
+    <label>Bathrooms</label>
+    <input type="number" name="Bathrooms" min="1" max="5" placeholder="Bathrooms">
+
+    <label>Guests Capacity</label>
+    <input type="number" name="GuestsCapacity" min="1" max="10" placeholder="Guests Capacity">
+
+    <label>Has Wifi</label>
+    <select name="HasWifi">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    <br><br>
+
+    <label>Has AC</label>
+    <select name="HasAC">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+    <br><br>
+
+    <label>Distance From City Centre</label>
+    <input type="number" name="DistanceFromCityCentre" min="10" max="50" placeholder="Distance from City Centre">
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  {% if predict %}
+    <h2>Predicted Price: {{ predict }}</h2>
+  {% endif %}
+</body>
+</html>
